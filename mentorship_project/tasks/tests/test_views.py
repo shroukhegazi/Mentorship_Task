@@ -4,11 +4,11 @@ from django.http import response
 from rest_framework import status
 from django.test import TestCase , Client
 from django.urls import reverse , resolve
-from taskes.models import Task
+from tasks.models import Task
 from mentorship_project import urls
-from taskes.views import list_create_task, get_update_delete_task
+from tasks.views import list_create_task, get_update_delete_task
 import json
-from taskes.views import is_status_changeable
+from tasks.views import is_status_changeable
 
 
 class TestStatusFunction(TestCase):
