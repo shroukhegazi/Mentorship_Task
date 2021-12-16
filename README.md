@@ -42,11 +42,13 @@ This project consists of five APIs, They are described below.
 
 ### Response
     HTTP 200 OK
-    Allow: POST, GET, OPTIONS
-    Content-Type: application/json
-    Vary: Accept
-
-    []
+    [
+      {
+       "id":"1"
+       "title":"title"
+       "status":"Draft"
+      }
+    ]
 
 ## Create a new task
 
@@ -54,17 +56,25 @@ This project consists of five APIs, They are described below.
 
 `POST /tasks/`
 
+### Body
+
+    {
+    "title":"title",
+    "status":"Draft"
+    }
+
 ### URL 
     http://127.0.0.1:8000/tasks/
 
 ### Response
 
     HTTP/1.1 201 Created
-    Allow: POST, GET, OPTIONS
-    Content-Type: application/json
-    Vary: Accept
 
-    {"id":"1","title":"title","status":"Draft"}
+    {
+    "id":"1",
+    "title":"title",
+    "status":"Draft"
+    }
 
 ## Get a specific task
 
@@ -78,12 +88,12 @@ This project consists of five APIs, They are described below.
 ### Response
 
     HTTP 200 OK
-    Allow: GET, PATCH, DELETE, OPTIONS
-    Content-Type: application/json
-    Vary: Accept
 
-
-    {"id":1,"title":"title","status":"Draft"}
+    {
+    "id":1,
+    "title":"title",
+    "status":"Draft"
+    }
 
 
 ## Change the status of a task
@@ -95,14 +105,18 @@ This project consists of five APIs, They are described below.
 ### URL
     http://127.0.0.1:8000/task/1
 
+### Body
+    
+    {
+    "status":"Active"
+    }
+
 ### Response
 
-    HTTP 200 OK
-    Allow: OPTIONS, PATCH, DELETE, GET
-    Content-Type: application/json
-    Vary: Accept
-    
-    {"status": "Done"}
+    HTTP 200 OK    
+    {
+    "status": "Active"
+    }
     
 
 ## Delete a specific task
@@ -117,9 +131,7 @@ This project consists of five APIs, They are described below.
 ### Response
 
     HTTP 204 No Content
-    Allow: OPTIONS, PATCH, DELETE, GET
-    Content-Type: application/json
-    Vary: Accept
+
 
 
 
